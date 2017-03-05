@@ -1,4 +1,6 @@
 
+const deployed = new Date();
+
 const validateOptions = (options) => {
     if (!options || !options.pkg ) {
         throw Error("argument {pkg: [package.json as text]} must be set");
@@ -16,7 +18,8 @@ const health = (options) => {
         res.json({
             "status": "OK",
             "name": options.pkg.name,
-            "version": options.pkg.version
+            "version": options.pkg.version,
+            "deployedAt": deployed
         });
     }
 };
